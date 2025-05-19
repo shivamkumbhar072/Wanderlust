@@ -29,14 +29,19 @@ module.exports.show = async(req, res) => {
 }
 
 module.exports.create = async(req, res) => {
-    let url = req.file.path;
-    let filename = req.file.filename;
-    const newListing = new Listing(req.body);
-    newListing.owner = req.user._id; 
-    newListing.image = { url, filename };
-    await newListing.save();
-    req.flash('success', 'Successfully created a new listing!');
-    res.redirect('/listings');
+    if(req.body.code == "7776095720"){
+        let url = req.file.path;
+        let filename = req.file.filename;
+        const newListing = new Listing(req.body);
+        newListing.owner = req.user._id; 
+        newListing.image = { url, filename };
+        await newListing.save();
+        req.flash('success', 'Successfully created a new listing!');
+        res.redirect('/listings');
+    }else{
+        req.flash('error', 'You entered an invalid approval code!');
+        res.redirect('/listings/new');
+    }
 }
 module.exports.edit = async(req, res) => {
     const { id } = req.params;
