@@ -1,3 +1,6 @@
+*{
+    font-family: -apple-system, BlinkMacSystemFont, "SegoeUI", Roboto, Helvetica, Arial, sans-serif, "AppleColorEmoji", "SegoeUIEmoji", "SegoeUISymbol";
+}
 .navbar {
     height: 5rem;
     background-color: white;
@@ -131,4 +134,93 @@
     border-radius: 25px;
     padding: 0.3rem 3rem 0.3rem 3rem;
 
+}
+
+
+/* second navbar */
+
+
+.filters-wrapper {
+    width: 60%;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.filters-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#filters {
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: min-content;
+    padding: 0 10px;
+    margin-top: 1.5rem;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.filter div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #f3f4f6;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.filter div:hover {
+    background-color: #b0b0b1;
+}
+
+.filter p {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    text-align: center;
+}
+.options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tax-info{
+    display: none;
+}
+.taxToggle{
+    border: 1px solid black;
+    padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+    border-radius: 0.4rem;
+}
+
+/* login form */
+
+.top-part{
+    background: linear-gradient(180deg, #f2515b,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff, #f2515b);
+}
+.top-part h3{
+    color: black;
+}
+.d-grid .login-btn{
+   background: linear-gradient(150deg, #f2515b,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff, #f2515b);
+    color: black;
+    border: 1px solid black ;
+    border-radius: 3rem;
+}
+.d-grid .login-btn:hover{
+   background: linear-gradient(180deg, #f2515b,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff,#ffffff, #f2515b);
+}
+
+.container .main-box {
+    border: 1px solid black;
 }
