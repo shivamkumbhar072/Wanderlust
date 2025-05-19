@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map 6cm x 4cm</title>
+  <style>
+    #map {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="map"></div>
+  </div>
+
+  <script>
+    let map;
+    let marker;
+
+    function initMap() {
+      const defaultLocation = { lat: 18.623012, lng: 73.817747 };
+
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: defaultLocation,
+        zoom: 15,
+      });
+
+      marker = new google.maps.Marker({
+        position: defaultLocation,
+        map: map,
+        title: "Default Location",
+      });
+    }
+  </script>
+  <script async
+    src="https://maps.gomaps.pro/maps/api/js?key=AlzaSy_XajzksLtRR5HBfg6y6N0t5ajc69p7IsB&callback=initMap">
+  </script>
+</body>
+</html>

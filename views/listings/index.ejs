@@ -1,0 +1,177 @@
+<% layout("layouts/boilerplate") %>
+
+    <style>
+        .filters-wrapper {
+            width: 60%;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .filters-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        #filters {
+            display: flex;
+            flex-wrap: nowrap;
+            min-width: min-content;
+            padding: 0 10px;
+            margin-top: 1.5rem;
+        }
+
+        .filter {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+
+        .filter div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+        }
+
+        .filter div:hover {
+            background-color: #b0b0b1;
+        }
+
+        .filter p {
+            margin-top: 8px;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+        .options{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tax-info{
+            display: none;
+        }
+        .taxToggle{
+            border: 1px solid black;
+            padding: 0.6rem 1.2rem 0.6rem 1.2rem;
+            border-radius: 0.4rem;
+        }
+    </style>
+
+    <body>
+<div class="options">
+        <div class="filters-wrapper ">
+            <div id="filters">
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <p>Beach Access</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-hot-tub"></i></div>
+                    <p>Hot Tub</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-dumbbell"></i></div>
+                    <p>Gym</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-ship"></i></div>
+                    <p>Waterfront</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-baby"></i></div>
+                    <p>Family Friendly</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-tv"></i></div>
+                    <p>TV/Entertainment</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-wheelchair"></i></div>
+                    <p>Accessible</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-sun"></i></div>
+                    <p>Sunny</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-leaf"></i></div>
+                    <p>Nature</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-bicycle"></i></div>
+                    <p>Bike Friendly</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-martini-glass"></i></div>
+                    <p>Nightlife</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-landmark"></i></div>
+                    <p>Historic</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-bus"></i></div>
+                    <p>Public Transit</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-coffee"></i></div>
+                    <p>Breakfast</p>
+                </div>
+                <div class="filter">
+                    <div><i class="fa-solid fa-lock"></i></div>
+                    <p>Security</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="taxToggle">
+            <div class="form-check-reverse form-switch ">
+            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+            <label class="form-check-label" for="switchCheckDefault">Display Taxes</label>
+        </div>
+        </div>
+        
+</div>
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1">
+            <% for(let listing of allListings) { %>
+                <a href="/listings/<%= listing._id%>" class="listing-link ">
+                    <div class="card col listing-card">
+                        <img src="<%= listing.image.url%>" class="card-img-top" alt="listing image"
+                            style="height: 20rem; object-fit: cover;">
+                        <div class="card-img-overlay">Available</div>
+                        <div class="card-body">
+                            <b>
+                                <%= listing.title %>
+                            </b><br>
+                            &#8377 <%= listing.price.toLocaleString('en-IN') %> / night
+                            <i class = "tax-info">&nbsp;+ 18% GST</i><br>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+    </body>
+<script>
+    let taxSwitch = document.getElementById("switchCheckDefault");
+    taxSwitch.addEventListener("click", function() {
+        let taxInfo = document.querySelectorAll(".tax-info");
+        if (this.checked) {
+            taxInfo.forEach(function(info) {
+                info.style.display = "inline";
+            });
+        } else {
+            taxInfo.forEach(function(info) {
+                info.style.display = "none";
+            });
+        }
+    });
+</script>

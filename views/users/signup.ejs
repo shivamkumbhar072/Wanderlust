@@ -1,0 +1,79 @@
+<%- layout("layouts/boilerplate") %>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-lg border-0 rounded-lg">
+        <div class="card-header bg-success text-white text-center py-4">
+          <h3 class="my-2"><i class="bi bi-person-plus-fill me-2"></i>Create an Account</h3>
+        </div>
+        <div class="card-body p-4 p-md-5">
+          <form class="needs-validation" novalidate action="/signup" method="POST">
+            <!-- Username Field -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="username" name="username" 
+                placeholder="Enter username" required minlength="3" maxlength="20" 
+                pattern="^[a-zA-Z0-9_]+$">
+              <label for="username"><i class="bi bi-person-fill me-2"></i>Username</label>
+              <div class="invalid-feedback">
+                Username must be 3-20 characters and contain only letters, numbers, and underscores.
+              </div>
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" name="email" 
+                placeholder="name@example.com" required>
+              <label for="email"><i class="bi bi-envelope-fill me-2"></i>Email address</label>
+              <div class="invalid-feedback">
+                Please provide a valid email address.
+              </div>
+              <div class="form-text mt-1">
+                <i class="bi bi-shield-lock me-1"></i> We'll never share your email with anyone else.
+              </div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="password" name="password" 
+                placeholder="Enter password" required minlength="4">
+              <label for="password"><i class="bi bi-key-fill me-2"></i>Password</label>
+              <div class="invalid-feedback">
+                Password must be at least 4 characters long.
+              </div>
+              <div class="form-text mt-1">
+                <i class="bi bi-info-circle me-1"></i> Your password must be at least 4 characters long.
+              </div>
+            </div>
+
+            <!-- Terms Agreement -->
+            <div class="mb-4">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                <label class="form-check-label" for="termsCheck">
+                  I agree to the <a href="/terms" class="text-decoration-none">terms and conditions</a>
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid gap-2 mb-4">
+              <button type="submit" class="btn btn-success btn-lg">
+                <i class="bi bi-check2-circle me-2"></i>Create Account
+              </button>
+            </div>
+          </form>
+    
+        </div>
+        <div class="card-footer bg-light py-3 text-center">
+          <p class="mb-0">
+            Already have an account? <a href="/login" class="text-decoration-none fw-bold">Log in</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
