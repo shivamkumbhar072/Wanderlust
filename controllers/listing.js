@@ -29,11 +29,16 @@ module.exports.show = async(req, res) => {
 }
 
 module.exports.create = async(req, res) => {
-    if(req.body.code == "7776095720"){
+
+    if(req.body.code == "ox3hh4i"){
+
         let url = req.file.path;
         let filename = req.file.filename;
         const newListing = new Listing(req.body);
         newListing.owner = req.user._id; 
+
+
+        newListing.category = req.body.categories;
         newListing.image = { url, filename };
         await newListing.save();
         req.flash('success', 'Successfully created a new listing!');

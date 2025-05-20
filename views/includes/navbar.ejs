@@ -17,12 +17,11 @@
             </form>
         </div>
         <div class="navbar-nav ms-auto">
-          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+          <a class="nav-link hover_btn list_" href="/listings/new">Become a Host</a>
           <% if (currUser) { %>
-            <a class="nav-link text-danger" href="/logout"><b>Logout</b></a>
+            <a class="nav-link text-danger hover_btn list_" href="/logout"><b>Logout</b></a>
           <% } else { %>
-            <a class="nav-link" href="/login"><b>Login</b></a>
-            <a class="nav-link" href="/signup"><b>Sign up</b></a>
+            <a class="nav-link  login_nav hover_btn" href="/login"><b>Get Started</b></a>
           <% } %>
         </div>
       </div>

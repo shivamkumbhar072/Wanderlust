@@ -61,7 +61,8 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="row">
+            <div class="mb-3 col-md-8">
                 <label for="location" class="form-label">Location</label>
                 <input name="location" id="location" placeholder="eg. Jaipur, Rajasthan, etc." type="text" class="form-control" required>
                 <div class="valid-feedback">
@@ -74,6 +75,9 @@
 
 
            <div class="mb-3">
+
+           <div class="mb-3 col-md-4">
+
                 <label for="approvalCode" class="form-label">Listing Approval Code</label>
                 <input name="code" id="approvalCode" placeholder="Enter approval code to continue" type="password" class="form-control" required>
                 <div class="valid-feedback">
@@ -83,7 +87,101 @@
                     Approval code missing. Please contact Shivam for your code.
                 </div>
             </div>
-            
+            </div>
+
+            <div class="">
+            <label class="form-label">Category</label>
+            <div class="filters-wrapperr">
+                <div id="filters" class="d-flex flex-wrap gap-2">
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Beach Access" hidden>
+                        <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                        <p>Beach Access</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Hot Tub" hidden>
+                        <div><i class="fa-solid fa-hot-tub"></i></div>
+                        <p>Hot Tub</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Gym" hidden>
+                        <div><i class="fa-solid fa-dumbbell"></i></div>
+                        <p>Gym</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Waterfront" hidden>
+                        <div><i class="fa-solid fa-ship"></i></div>
+                        <p>Waterfront</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Family Friendly" hidden>
+                        <div><i class="fa-solid fa-baby"></i></div>
+                        <p>Family Friendly</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Accessible" hidden>
+                        <div><i class="fa-solid fa-wheelchair"></i></div>
+                        <p>Accessible</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Sunny" hidden>
+                        <div><i class="fa-solid fa-sun"></i></div>
+                        <p>Sunny</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Nature" hidden>
+                        <div><i class="fa-solid fa-leaf"></i></div>
+                        <p>Nature</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Bike Friendly" hidden>
+                        <div><i class="fa-solid fa-bicycle"></i></div>
+                        <p>Bike Friendly</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Nightlife" hidden>
+                        <div><i class="fa-solid fa-martini-glass"></i></div>
+                        <p>Nightlife</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Historic" hidden>
+                        <div><i class="fa-solid fa-landmark"></i></div>
+                        <p>Historic</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Public Transit" hidden>
+                        <div><i class="fa-solid fa-bus"></i></div>
+                        <p>Public Transit</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Breakfast" hidden>
+                        <div><i class="fa-solid fa-coffee"></i></div>
+                        <p>Breakfast</p>
+                    </label>
+
+                    <label class="filter" style="cursor: pointer;">
+                        <input type="checkbox" name="categories[]" value="Security" hidden>
+                        <div><i class="fa-solid fa-lock"></i></div>
+                        <p>Security</p>
+                    </label>
+
+                </div> 
+            </div>
+
+        </div>
+           
             <br>
             <button type="submit" class="btn btn-danger add-btn">Add</button>
             <br>
@@ -92,3 +190,13 @@
     </div>
 </div>
 
+
+<script>
+  document.querySelectorAll('.filter').forEach(label => {
+    label.addEventListener('click', () => {
+      const checkbox = label.querySelector('input[type="checkbox"]');
+      checkbox.checked = !checkbox.checked;
+      label.classList.toggle('active', checkbox.checked);
+    });
+  });
+</script>

@@ -24,6 +24,16 @@ router
 router.get("/new", islogin,listingControllers.new);
 
 
+router.get("/catagory/:id",async(req,res)=>{
+    const { id } = req.params;
+    const allListings = await Listing.find({category: id});
+if (!allListings || allListings.length === 0) {
+    return res.render('listings/nothing.ejs');
+}
+
+    res.render('listings/catagory.ejs', { allListings,id });
+});
+
 router
 .route("/:id")
 .get(wrapAsync(listingControllers.show))

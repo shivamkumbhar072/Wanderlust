@@ -13,6 +13,7 @@ async function main() {
 async function seedDB() {
   await Listing.deleteMany({});
   Data.data = Data.data.map((obj)=>({...obj,owner:'68204d9249e38e43f236bbce'}));
+  
   await Listing.insertMany(Data.data);
   console.log("Database seeded successfully!");
 }
