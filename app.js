@@ -31,33 +31,33 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 app.engine('ejs', ejsMate);
 
-// const dbUrl = process.env.ATLAS_DB_URL;
+const dbUrl = process.env.ATLAS_DB_URL;
 
 main().then(() => {
   console.log('Connected to MongoDB');
 }).catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect("mongodb://localhost:27017/wanderlust");
+  await mongoose.connect(dbUrl);
 }
 
 // Root route
 app.get('/', (req, res) => {
   res.redirect('/listings');
 });
-// const store = MongoDBStore.create({
-//     mongoUrl: dbUrl,
-//     crypto:{
-//         secret: process.env.SECRET,
-//     },
-//     touchAfter: 24 * 60 * 60,
-// });
-// store.on("error", function(e){
-//     console.log("Session store error", e);
-// }
-// );
+const store = MongoDBStore.create({
+    mongoUrl: dbUrl,
+    crypto:{
+        secret: process.env.SECRET,
+    },
+    touchAfter: 24 * 60 * 60,
+});
+store.on("error", function(e){
+    console.log("Session store error", e);
+}
+);
 let sessionOptions = {
-    // store,
+    store,
     secret: process.env.SECRET,
     resave: false, 
     saveUninitialized: true,
